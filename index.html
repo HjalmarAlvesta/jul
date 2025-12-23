@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>God Jul!</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(#0b3d91, #001f3f);
+      color: white;
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-top: 120px;
+      font-size: 48px;
+      text-shadow: 0 0 10px gold;
+    }
+
+    p {
+      font-size: 22px;
+    }
+
+    button {
+      margin-top: 30px;
+      font-size: 24px;
+      padding: 18px 40px;
+      border: none;
+      border-radius: 12px;
+      background: red;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 20px gold;
+      animation: pulse 1.5s infinite;
+    }
+
+    button:hover {
+      background: darkred;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .snow {
+      position: absolute;
+      top: -10px;
+      color: white;
+      font-size: 18px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎄 God Jul Hjalmar! 🎄</h1>
+  <p>✨ Tryck på knappen nedan för lösenord ✨</p>
+
+  <button onclick="goNext()">🎁 Visa lösenord 🎁</button>
+
+  <script>
+    function goNext() {
+      window.location.href = "losenord.html";
+    }
+
+    // Skapa snö
+    for (let i = 0; i < 40; i++) {
+      let snow = document.createElement("div");
+      snow.innerHTML = "❄️";
+      snow.className = "snow";
+      snow.style.left = Math.random() * 100 + "vw";
+      snow.style.animationDuration = (3 + Math.random() * 5) + "s";
+      snow.style.fontSize = (12 + Math.random() * 24) + "px";
+      document.body.appendChild(snow);
+    }
+  </script>
+
+</body>
+</html>
