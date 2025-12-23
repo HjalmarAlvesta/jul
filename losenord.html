@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Lösenord</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle, #b30000, #4d0000);
+      color: white;
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .word {
+      margin-top: 120px;
+      font-size: 50px;
+      font-weight: bold;
+      text-shadow: 0 0 15px gold;
+    }
+
+    p {
+      font-size: 24px;
+    }
+
+    .snow {
+      position: absolute;
+      top: -10px;
+      color: white;
+      font-size: 18px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="word" id="word"></div>
+  <p>🎅 Säg följande till din pappa 🎅</p>
+  <p><strong id="say"></strong></p>
+
+  <script>
+    const words = [
+      "Apelsin",
+      "Tomten",
+      "Snöboll",
+      "Pepparkaka",
+      "Julgran",
+      "Ren",
+      "Paket",
+      "Stjärna"
+    ];
+
+    const randomWord = words[Math.floor(Math.random() * words.length)];
+
+    document.getElementById("word").textContent = randomWord;
+    document.getElementById("say").textContent = randomWord;
+
+    // Snö
+    for (let i = 0; i < 40; i++) {
+      let snow = document.createElement("div");
+      snow.innerHTML = "❄️";
+      snow.className = "snow";
+      snow.style.left = Math.random() * 100 + "vw";
+      snow.style.animationDuration = (3 + Math.random() * 5) + "s";
+      snow.style.fontSize = (12 + Math.random() * 24) + "px";
+      document.body.appendChild(snow);
+    }
+  </script>
+
+</body>
+</html>
